@@ -1,0 +1,33 @@
+Package: mlhrsm
+Version: 1.0
+Date: 2022-09-03
+Title: High-resolution Soil Moisture Mapping and Analysis
+Description: Predicting and analyzing regional and point vegetation water content (VWC) values based on machine learning models. 
+Author: Yuliang Peng, Jingyi Huang
+Maintainer: Yuliang Peng <peng68@wisc.edu>
+Imports:
+    FedData,
+    RColorBrewer,
+    caret,
+    chillR,
+    leaflet,
+    quantregForest,
+    randomForest,
+    reshape2,
+    hydroGOF,
+    rgdal,
+    sp,
+    lubridate
+Depends:
+    R (>= 2.10),
+    raster,
+    rgee,
+    sf,
+    tidyverse,
+    viridis
+Suggests: R.rsp
+VignetteBuilder: R.rsp
+LazyData: no
+RoxygenNote: 7.2.1
+Encoding: UTF-8
+License: GPL-3
