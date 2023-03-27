@@ -11,7 +11,7 @@ Package installation instructions
 1. Install the latest version RTools (RTools 4.2 or the version that is compatible with the user’s R console, https://cran.r-project.org/bin/windows/Rtools/).
 
 2. Install the following dependency R packages.
-> install.packages(c('raster', 'rgee', 'sf', 'tidyverse', 'viridis', 'FedData', 'RColorBrewer', 'caret', 'chillR', 'leaflet', 'hydroGOF', 'quantregForest', 'randomForest', 'reshape2', 'rgdal', 'sp', 'lubridate', 'geojsonio', 'stars', 'Rcpp'))
+> install.packages(c('raster', 'rgee', 'sf', 'tidyverse', 'viridis', 'FedData', 'RColorBrewer', 'caret', 'chillR', 'leaflet', 'hydroGOF', 'quantregForest', 'randomForest', 'reshape2', 'rgdal', 'sp', 'lubridate', 'geojsonio', 'stars', 'Rcpp', 'fastmap', 'digest', 'fs', 'stringi', 'cachem', 'htmltools', 'curl', 'ps', 'processx'))
 
 3. Install R package mlhrsm. The users can install it from GitHub.
 > install.packages(c("devtools","R.rsp"))
