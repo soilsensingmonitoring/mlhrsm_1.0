@@ -22,6 +22,7 @@ Package installation instructions
 First, all users need to create a free Google Earth Engine account (https://earthengine.google.com/signup/).
 Second, install gcloud CLI before downloading maps from Google Earth Engine (https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe). 
 Third, create a project on the Google Earth Account for future use. After installing the gcloud CLI, if a CMD window pops out (when the user enables configuration of gcloud) to ask the user to connect gcloud CLI, select “Y” to log in. Then a web page will appear with a message saying “Google Cloud SDK wants to access your Google Account”; select Allow and go back to the CMD where the system asks the user to “Pick cloud project to use.” Select the project the user wants to use, and close CMD. Lastly, relaunch R software and install Google Earth Engine API in the R environment.
+In the future, if the user wants to reset the gcloud, please follow this page for detailed instructions. https://cloud.google.com/sdk/docs/configurations
 
 > library(mlhrsm)
 
