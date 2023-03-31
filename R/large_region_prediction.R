@@ -1141,12 +1141,40 @@ split_region <- function(area, project=NULL, filename="sub_regions.shp") {
 
   boundary <- as(roi_new , Class = "Spatial")
 
-  cut <- st_make_grid(roi_new, cellsize = 0.25) # cellsize=0.25 - about 530 km2
+  if (nrow(roi_new) == 1)
+  {
+    cut <- st_make_grid(roi_new, cellsize = 0.05) # cellsize=0.25 - about 530 km2
+  }
+  
+  if (nrow(roi_new) > 1)
+  {
+    cut <- st_make_grid(roi_new, cellsize = 0.25) # cellsize=0.25 - about 530 km2
+  }
+  
+  cut <- st_make_valid(cut)  ## Snap isolated points and make an invalid geometry valid
+  
   split_area <- st_intersection(roi_new,cut)
-  split_area <- split_area$geometry
+  split_area <- st_make_valid(split_area)  ## Snap isolated points and make an invalid geometry valid
+ 
 
-  large_region <- split_area[area(as(split_area , Class = "Spatial"))/1000000>=250]
-  small_region <- split_area[area(as(split_area , Class = "Spatial"))/1000000<250]
+  {
+    split_area_update <- NULL
+    for (qq in 1:nrow(split_area))
+    {
+      if (class(split_area[qq,]$geometry)[1] == "sfc_POLYGON" | class(split_area[qq,]$geometry)[1] == "sfc_MULTIPOLYGON")
+        split_area_update <- rbind(split_area_update, split_area[qq, ])
+    }
+    split_area <- split_area_update
+
+    
+  }
+    
+  
+  split_area <- st_cast(split_area,"POLYGON")
+  split_area <- split_area$geometry
+  
+  large_region <- split_area[as.numeric(st_area(split_area))/1000000>=250]
+  small_region <- split_area[as.numeric(st_area(split_area))/1000000<250]
 
   regions <- NULL
 
@@ -1193,12 +1221,16 @@ split_region <- function(area, project=NULL, filename="sub_regions.shp") {
     }
   }
 
-  sub_regions <- c(large_region, regions)
+  if (length(large_region)>0) {sub_regions <- c(large_region, regions)}
+  
+  if (length(large_region)==0) {sub_regions <- small_region}
+
   print(paste0("Splitting area into ", length(sub_regions), " regions..."))
 
   write_sf(sub_regions, paste0(WD, "/", filename))
 
 }
+
 
 
 
