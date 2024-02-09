@@ -11,11 +11,17 @@ Package installation instructions
 1. Install the latest version RTools (RTools 4.2 or the version that is compatible with the user’s R console, https://cran.r-project.org/bin/windows/Rtools/).
 
 2. Install the following dependency R packages.
-> install.packages(c('raster', 'rgee', 'sf', 'tidyverse', 'viridis', 'FedData', 'RColorBrewer', 'caret', 'chillR', 'leaflet', 'hydroGOF', 'quantregForest', 'randomForest', 'reshape2', 'rgdal', 'sp', 'lubridate', 'geojsonio', 'stars', 'Rcpp', 'fastmap', 'digest', 'fs', 'stringi', 'cachem', 'htmltools', 'curl', 'ps', 'processx'))
+> install.packages(c('raster', 'rgee', 'sf', 'tidyverse', 'viridis', 'FedData', 'RColorBrewer', 'caret', 'chillR', 'leaflet', 'hydroGOF', 'quantregForest', 'randomForest', 'reshape2', 'sp', 'lubridate', 'geojsonio', 'stars', 'Rcpp', 'fastmap', 'digest', 'fs', 'stringi', 'cachem', 'htmltools', 'curl', 'ps', 'processx'))
+
+Since `rgdal` is no longer available on CRAN, we need to install it through `devtools`.
+> install.packages("devtools")
+> library(devtools)
+> install_version("rgdal", version = "1.6-7", repos = "http://cran.us.r-project.org") 
+> library(rgdal)
+> options("rgdal_show_exportToProj4_warnings"="none")   ## Please run this line so that rgdal package can still be used without confusion with sf and terra packages
 
 3. Install R package mlhrsm. The users can install it from GitHub.
-> install.packages(c("devtools","R.rsp"))
-
+> install.packages("R.rsp")
 > devtools::install_github("soilsensingmonitoring/mlhrsm_1.0", build_vignettes=T)
 
 4. Set up Google Earth Engine account, project, and API. 
