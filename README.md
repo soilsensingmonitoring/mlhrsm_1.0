@@ -20,9 +20,8 @@ Since `rgdal` is no longer available on CRAN, we need to install it through `dev
 
 > install_version("rgdal", version = "1.6-7", repos = "http://cran.us.r-project.org")
 
-> library(rgdal)
-
-> options("rgdal_show_exportToProj4_warnings"="none")   ## Please run this line so that rgdal package can still be used without confusion with sf and terra packages
+Remember to run the following line before using `rgdal` package to avoid confusion with `sf` and `terra` packages.
+> options("rgdal_show_exportToProj4_warnings"="none")
 
 3. Install R package mlhrsm. The users can install it from GitHub.
 > install.packages("R.rsp")
