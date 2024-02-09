@@ -15,13 +15,18 @@ Package installation instructions
 
 Since `rgdal` is no longer available on CRAN, we need to install it through `devtools`.
 > install.packages("devtools")
+
 > library(devtools)
-> install_version("rgdal", version = "1.6-7", repos = "http://cran.us.r-project.org") 
+
+> install_version("rgdal", version = "1.6-7", repos = "http://cran.us.r-project.org")
+
 > library(rgdal)
+
 > options("rgdal_show_exportToProj4_warnings"="none")   ## Please run this line so that rgdal package can still be used without confusion with sf and terra packages
 
 3. Install R package mlhrsm. The users can install it from GitHub.
 > install.packages("R.rsp")
+
 > devtools::install_github("soilsensingmonitoring/mlhrsm_1.0", build_vignettes=T)
 
 4. Set up Google Earth Engine account, project, and API. 
