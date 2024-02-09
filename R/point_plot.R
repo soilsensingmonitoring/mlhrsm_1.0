@@ -130,7 +130,7 @@ point_extraction <- function(site_, percentile=FALSE, project=NULL,
 #'
 #' @return a list of plots. The first plot is a leaflet plot showing the locations of the points; the second plot is a time series plot showing the variation of each point’s predicted VWC overtime
 #'
-#' @import tidyverse leaflet
+#' @import tidyverse leaflet latex2exp
 #'
 #' @export
 #'
@@ -187,7 +187,7 @@ site_variation <- function(depth, percentile=FALSE, project=NULL, site_=NULL,
     geom_ribbon(aes(Date, ymin = Mean - SD,
                     ymax = Mean + SD, fill="sd"), alpha=0.3)+
     facet_wrap(~~factor(ID, stringr::str_sort(unique(ID), numeric = TRUE)))+
-    labs(y="VWC", x="Date", title="Site-specific VWC variations over time")+
+    labs(y=TeX("VWC (m^3m^{-3})"), x="Date", title="Site-specific VWC variations over time")+
     theme_bw()+
     # scale_linetype_manual("", "mean", labels = "Mean", values=1)+
     scale_color_manual(values="grey16")+

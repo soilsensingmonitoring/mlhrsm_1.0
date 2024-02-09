@@ -88,7 +88,7 @@ plot_map <- function(date, depth, percentile = FALSE, project=NULL){
 #'
 #' @return a time series plot visualizing the basic statistics of the region.
 #'
-#' @import tidyverse raster viridis
+#' @import tidyverse raster viridis latex2exp
 #'
 #' @export
 #'
@@ -135,7 +135,7 @@ area_sum <- function(depth, project=NULL){
 
   p <- ggplot(ts_table)+
     geom_line(aes(as.Date(Date),value,col=Summary))+
-    labs(y="VWC", x="Date", color="Summary", title="Area Aggregated Statistics")+
+    labs(y=TeX("VWC (m^3m^{-3})"), x="Date", color="Summary", title="Area Aggregated Statistics")+
     theme_bw()+
     scale_x_date(date_labels =  "%y-%m-%d")+
     theme(axis.text.x = element_text(angle = -10, vjust = 0.1, hjust=0.5,size=8))

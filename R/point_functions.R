@@ -10,7 +10,7 @@
 #'
 #' @return a time series plot with predicted and measured data, as well as the 90 percent CI of the predicted data.
 #'
-#' @import tidyverse
+#' @import tidyverse latex2exp
 #' @importFrom lubridate ymd
 #'
 #' @export
@@ -64,7 +64,7 @@ point_CI <- function(test, depth, project=NULL, site_=NULL,
     scale_x_date(date_labels =  "%y-%m-%d")+
     scale_linetype_manual(values=c(1,2), labels=c("Predicted", "Measured"))+
     theme(axis.text.x = element_text(angle = 30, vjust = 1, hjust=1,size=8))+
-    labs(x="Date", y="VWC",linetype="")
+    labs(x="Date", y=TeX("VWC (m^3m^{-3})"),linetype="")
 
   return(p)
 }
