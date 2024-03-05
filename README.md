@@ -4,7 +4,7 @@ Machine-Learning based High-Resolution Soil Moisture mapping and spatial analysi
 
 Authors: Yuliang Peng (peng68@wisc.edu), Jingyi Huang (jhuang426@wisc.edu)
 
-This package has been published online: https://doi.org/10.3390/agronomy14030421
+This package has been published online: https://doi.org/10.3390/agronomy14030421 All the R code and datasets can be found here: https://github.com/soilsensingmonitoring/mlhrsm_1.0/tree/main/ReproductionMaterials
 
 For package support or future collaboration, please contact Dr. Jingyi Huang by email or join our Google Group (mlhrsm@googlegroups.com).
 
